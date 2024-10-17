@@ -1,0 +1,6 @@
+
+W
+java:S1854":Remove this useless assignment to local variable "lista3".(ËÖå³8Œš»Ş©2
+H
+java:S1481"+Remove this unused "lista3" local variable.(ËÖå³8’š»Ş©2
+m	java:S128("LEnd this switch case with an unconditional break, return or throw statement.(úâúÿÿÿÿ8•š»Ş©2

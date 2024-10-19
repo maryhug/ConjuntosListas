@@ -100,13 +100,13 @@ public class Lista {
         Nodo P = punta;
         ordenar();
         while (P != null) {
-           Nodo Q = P.getLiga();
+            Nodo Q = P.getLiga();
             while (Q != null) {
                 if (P.getDato() == Q.getDato()) {
                     eliminar(Q.getDato());
                     P = punta;
                     Q = P.getLiga();
-                }else {
+                } else {
                     Q = Q.getLiga();
                 }
             }
@@ -120,7 +120,7 @@ public class Lista {
         if (P.getDato() == R) {
             punta = punta.getLiga();
             P.setLiga(null);
-        }else {
+        } else {
             while (Q != null) {
                 if (Q.getDato() == R) {
                     P.setLiga(Q.getLiga());
@@ -142,7 +142,7 @@ public class Lista {
         Nodo P = punta;
         Lista inter = new Lista();
         while (P != null) {
-         Nodo Q = punta2;
+            Nodo Q = punta2;
             while (Q != null) {
                 if (P.getDato() == Q.getDato()) {
                     inter.insertarFinal(P.getDato());
@@ -249,7 +249,7 @@ public class Lista {
     public void posicion(int dato) {
         Nodo P = punta;
         int cont = 1;
-        if (pertenece(dato)){
+        if (pertenece(dato)) {
             while (P != null) {
                 if (P.getDato() == dato) {
                     System.out.println("El dato " + dato + " se encuentra en la posición " + cont);
@@ -257,34 +257,26 @@ public class Lista {
                 P = P.getLiga();
                 cont++;
             }
-        }else {
+        } else {
             System.out.println("El dato no se encuentra en la lista");
         }
 
     }
 
-
-
 }
-
-
-
-    /*Mostrar, x
-    Cantidad de elementos,xx
-    pertenece o no,x
-    insertar al final x,
-    union,x
-    eliminar duplicado,X
-    interseccion X
-    igualdad X
-    subconjunto X
-    complemento X
-    diferenciaX
-    diferencia simetricaX
-    eliminar X
-    posiciónX
-     */
-
-
-
-
+/*
+ * Mostrar
+ * Cantidad de elementos
+ * Pertenece o no
+ * Insertar al final
+ * Union
+ * Eliminar duplicado
+ * Interseccion
+ * Igualdad
+ * Subconjunto
+ * Complemento
+ * Diferencia
+ * Diferencia simetrica
+ * Eliminar
+ * Posición
+ */

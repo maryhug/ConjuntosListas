@@ -1,5 +1,4 @@
 
-
 public class Nodo {
     private int dato;
     private Nodo liga;

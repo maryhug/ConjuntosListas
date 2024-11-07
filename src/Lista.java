@@ -263,6 +263,100 @@ public class Lista {
 
     }
 
+    // método heapsort
+    public void heapSort() {
+        int n = cantidadElementos();
+
+        // Construimos el heap máximo
+        for (int i = n / 2 - 1; i >= 0; i--) {
+            heapify(n, i);
+        }
+
+        // Extraemos los elementos del heap uno por uno
+        for (int i = n - 1; i > 0; i--) {
+            // Intercambiamos el primer nodo con el último nodo del heap
+            Nodo firstNode = getNodoAt(0);
+            Nodo lastNode = getNodoAt(i);
+            int temp = firstNode.getDato();
+            firstNode.setDato(lastNode.getDato());
+            lastNode.setDato(temp);
+
+            // Reducimos el heap y aplicamos heapify en la nueva raíz
+            heapify(i, 0);
+        }
+    }
+    // Método auxiliar para obtener un nodo en una posición específica
+    private Nodo getNodoAt(int index) {
+        Nodo actual = punta;
+        for (int i = 0; i < index && actual != null; i++) {
+            actual = actual.getLiga();
+        }
+        return actual;
+    }
+
+    // Método auxiliar para heapSort
+    private void heapify(int n, int i) {
+        int largest = i;
+        int left = 2 * i + 1;
+        int right = 2 * i + 2;
+
+        Nodo largestNode = getNodoAt(largest);
+        Nodo leftNode = getNodoAt(left);
+        Nodo rightNode = getNodoAt(right);
+
+        // Verificamos si el hijo izquierdo es mayor que el nodo raíz
+        if (left < n && leftNode != null && leftNode.getDato() > largestNode.getDato()) {
+            largest = left;
+            largestNode = leftNode;
+        }
+
+        // Verificamos si el hijo derecho es mayor que el nodo más grande hasta ahora
+        if (right < n && rightNode != null && rightNode.getDato() > largestNode.getDato()) {
+            largest = right;
+            largestNode = rightNode;
+        }
+
+        // Si el nodo más grande no es la raíz
+        if (largest != i) {
+            Nodo rootNode = getNodoAt(i);
+            int temp = rootNode.getDato();
+            rootNode.setDato(largestNode.getDato());
+            largestNode.setDato(temp);
+
+            // Recursivamente aplicamos heapify al subárbol afectado
+            heapify(n, largest);
+        }
+    }
+//metodo de busqueda binaria
+    public void busquedaBinaria(int dato) {
+        ordenar();
+        int inicio = 0;
+        int fin = cantidadElementos() - 1;
+        int mitad;
+        boolean encontrado = false;
+        while (inicio <= fin) {
+            mitad = (inicio + fin) / 2;
+            Nodo P = punta;
+            for (int i = 0; i < mitad; i++) {
+                P = P.getLiga();
+            }
+            if (P.getDato() == dato) {
+                System.out.println("El dato " + dato + " se encuentra en la posición " + mitad);
+                encontrado = true;
+                break;
+            } else if (P.getDato() < dato) {
+                inicio = mitad + 1;
+            } else {
+                fin = mitad - 1;
+            }
+        }
+        if (!encontrado) {
+            System.out.println("El dato no se encuentra en la lista");
+        }
+    }
+
+
+
 
 
 }

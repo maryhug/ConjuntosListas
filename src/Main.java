@@ -52,7 +52,9 @@ public class Main {
                 System.out.println("11. Diferencia");
                 System.out.println("12. Diferencia simetrica ");
                 System.out.println("13. Posicion");
-                System.out.println("14. Salir ");
+                System.out.println("14. HeapSort ");
+                System.out.println("15. Busqueda binaria");
+                System.out.println("16. Salir ");
 
                 System.out.print("Elige una opción: ");
                 try {
@@ -125,10 +127,21 @@ public class Main {
                         int datoPosicion = scanner.nextInt();
                         lista.posicion(datoPosicion);
                         break;
+                    case 14:
+                        System.out.println("HeapSort");
+                        lista.heapSort();
+                        lista.mostrar();
+                        break;
+                    case 15:
+                        System.out.print("Ingresa el dato a buscar: ");
+                        int datoBusqueda = scanner.nextInt();
+                        lista.busquedaBinaria(datoBusqueda);
+                        break;
+
                     default:
                         System.out.println("Opción no válida.");
                         break;
                 }
-            } while (opcion != 14);
+            } while (opcion != 16);
         }
 }
